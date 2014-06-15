@@ -109,13 +109,13 @@ fi
 CONTAINERID=$(sudo docker ps | grep "cannyos-base-opensuse" | head -n 1 | awk 'BEGIN { FS = "[ \t]+" } { print $1 }' ) && echo "$CONTAINERID"
 
 # Remove any old containers
-sudo docker stop dockerfile-cannyos-ubuntu-14_04-fuse && \
-sudo docker kill dockerfile-cannyos-ubuntu-14_04-fuse && \
-sudo docker rm dockerfile-cannyos-ubuntu-14_04-fuse && \
-sudo docker rmi intlabs/dockerfile-cannyos-ubuntu-14_04-fuse
+sudo docker stop cannyos-base-opensuse-fuse && \
+sudo docker kill cannyos-base-opensuse-fuse && \
+sudo docker rm cannyos-base-opensuse-fuse && \
+sudo docker rmi intlabs/cannyos-base-opensuse-fuse
 
 #Commit the container image
-sudo docker commit -m="Installed FUSE" -a="Pete Birley" $CONTAINERID intlabs/dockerfile-cannyos-ubuntu-14_04-fuse
+sudo docker commit -m="Installed FUSE" -a="Pete Birley" $CONTAINERID intlabs/cannyos-base-opensuse-fuse
 
 # Shut down the base image
 sudo docker stop cannyos-base-opensuse
@@ -123,23 +123,23 @@ sudo docker stop cannyos-base-opensuse
 echo ""
 echo "*****************************************************"
 echo "*                                                   *"
-echo "* CannyOS/dockerfile-cannyos-ubuntu-14_04-fuse  :)  *"
+echo "* CannyOS/cannyos-base-opensuse-fuse  :)  *"
 echo "*                                                   *"
 echo "*****************************************************"
 echo ""
 
 
 # Make shared directory on host
-sudo mkdir -p "/CannyOS/build/dockerfile-cannyos-ubuntu-14_04-fuse"
+sudo mkdir -p "/CannyOS/build/cannyos-base-opensuse-fuse"
 # Ensure that there it is clear
-sudo rm -r -f "/CannyOS/build/dockerfile-cannyos-ubuntu-14_04-fuse/*"
+sudo rm -r -f "/CannyOS/build/cannyos-base-opensuse-fuse/*"
 
 
 
 sudo docker run -i -t --rm \
  --privileged=true --lxc-conf="native.cgroup.devices.allow = c 10:229 rwm" \
- --volume "/CannyOS/build/dockerfile-cannyos-ubuntu-14_04-fuse":"/CannyOS/Host" \
- --name "dockerfile-cannyos-ubuntu-14_04-fuse" \
- --hostname "dockerfile-cannyos-ubuntu-14_04-fuse" \
+ --volume "/CannyOS/build/cannyos-base-opensuse-fuse":"/CannyOS/Host" \
+ --name "cannyos-base-opensuse-fuse" \
+ --hostname "cannyos-base-opensuse-fuse" \
  --user "root" \
- intlabs/dockerfile-cannyos-ubuntu-14_04-fuse
+ intlabs/cannyos-base-opensuse-fuse
