@@ -37,17 +37,11 @@ rm -f "/CannyOS/Host/done"
 
 # Put content of script here
 
-#Install OpenSSH server
-#apt-get install -y openssh-server
-#mkdir -p /var/run/sshd 
-
 # Install FUSE
-#apt-get install -y fuse fuselib
+zypper install -y fuse
 
 # Install SSHFS
-#apt-get install -y sshfs
-
-bash
+zypper install -y sshfs
 
 echo ""
 cat /CannyOS/CannyOS.splash
