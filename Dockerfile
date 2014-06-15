@@ -1,7 +1,7 @@
 #
-# CannyOS Arch Linux base container
+# CannyOS OpenSUSE base container
 #
-# https://github.com/intlabs/cannyos-base-archlinux
+# https://github.com/intlabs/cannyos-base-opensuse
 #
 # Copyright 2014 Pete Birley
 #
@@ -28,6 +28,7 @@ ENV HOME /root
 ENV DISTRO opensuse
 
 # Install base utilities.
+RUN zypper refresh && zypper install -y curl
 RUN curl -s https://raw.githubusercontent.com/intlabs/cannyos-utils/master/base-containers/packages/packages-10.sh | bash
 
 #Add files for root user.
