@@ -41,7 +41,7 @@ echo ""
 sudo docker rmi intlabs/cannyos-base-opensuse
 
 # Build base container image
-sudo docker build -t="intlabs/cannyos-base-opensuse" github.com/intlabs/cannyos-base-opensuse
+sudo docker build --no-cache -t="intlabs/cannyos-base-opensuse" github.com/intlabs/cannyos-base-opensuse
 
 echo ""
 echo "*****************************************************"
