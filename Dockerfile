@@ -19,7 +19,7 @@
 #
 
 # Pull base image.
-FROM mmckeen/opensuse-13-1
+FROM opensuse:13.2
 
 MAINTAINER "Pete Birley (petebirley@gmail.com)"
 

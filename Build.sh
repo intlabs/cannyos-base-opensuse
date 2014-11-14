@@ -136,7 +136,7 @@ sudo rm -r -f "/CannyOS/build/cannyos-base-opensuse-fuse/*"
 
 
 
-sudo docker run -i -t --rm \
+sudo docker run -i -t -d \
  --privileged=true --lxc-conf="native.cgroup.devices.allow = c 10:229 rwm" \
  --volume "/CannyOS/build/cannyos-base-opensuse-fuse":"/CannyOS/Host" \
  --name "cannyos-base-opensuse-fuse" \
